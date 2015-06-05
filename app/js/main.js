@@ -6,16 +6,22 @@ var Todo = function (options) {
   this.status = args.status;
 };
 
-
+var openTasks = [];
 
 //Connect input field and button event to Todo:
 $('.addDo').on('click', function (e) {
   e.preventDefault();
 
   var x = $('textDo').val();
-  var b = new Todo({text: $('.textDo').val(), status: 'Open'});
+  var task = new Todo({text: $('.textDo').val(), status: 'Open'});
 
-  $('.list').append('<li>' + b.text + '</li>');
+  openTasks.push(task);
+
+  $('.list').append('<li>' + task.text + '</li>');
+
+  this.reset();
+
+
 
   console.log(b);
 });
