@@ -3,7 +3,7 @@
 var Todo = function (options) {
   var args = options || {};
   this.text = args.text;
-  this.status = args.status;
+  this.status = 'Open';
 };
 
 var openTasks = [];
@@ -14,8 +14,9 @@ var closedTasks = [];
 $('.input').on('submit', function (e) {
   e.preventDefault();
 
-  var x = $('textDo').val();
-  var task = new Todo({text: $('.textDo').val(), status: 'Open'});
+  var taskItem = $('.textDo').val();
+  var task = new Todo({text: taskItem});
+
 
 // push tasks to array openTasks
   openTasks.push(task);
@@ -31,12 +32,13 @@ $('.input').on('submit', function (e) {
 
 // moves openTasks list item to closedTasks array when clicked
 
-  $('#tasks').on('click', function (event) {
+  $('.tasks').on('click', 'li', function (event) {
+//     event.preventDefault();
     $(this).toggleClass('strike');
     var taskDone = $(this).text();
-    var taskToEdit = _.find(openTasks, {task: taskDone});
-//     taskToEdit.status = 'Closed';
-    console.log(openTasks);
+    var taskEdit = _.find(openTasks, {task: taskDone});
+    taskEdit.status = 'Closed';
+    console.log(tasks);
   });
 
 
@@ -53,5 +55,7 @@ $('.input').on('submit', function (e) {
 //  var taskToEdit = _.find(storage, {task: tTask});
 //  taskToEdit.status = 'Complete';
 // });
+
+    // $(this).remove(); will remove from list
 
 
