@@ -33,12 +33,22 @@ $('.input').on('submit', function (e) {
 // moves openTasks list item to closedTasks array when clicked
 
   $('.tasks').on('click', 'li', function (event) {
-//     event.preventDefault();
-    $(this).toggleClass('strike');
+    event.preventDefault();
+    $(this).addClass('strike');
     var taskDone = $(this).text();
     var taskEdit = _.find (openTasks, {text: taskDone});
     taskEdit.status = 'Closed';
-    console.log(task);
+
+  });
+
+
+  $('#also').on('click', 'li', function (event) {
+    event.preventDefault();
+    $(this).removeClass('strike');
+    var taskDone = $(this).text();
+    var taskEdit = _.find (openTasks, {text: taskDone});
+    taskEdit.status = 'Open';
+
   });
 
 
