@@ -4,7 +4,7 @@ var taskDone, taskEdit;
 var Todo = function (options) {
   var args = options || {};
   this.text = args.text;
-  this.status = 'Open';
+  this.status = args.status;
 };
 
 var openTasks = [];
@@ -16,7 +16,7 @@ $('.input').on('submit', function (e) {
   e.preventDefault();
 
   var taskItem = $('.textDo').val();
-  var task = new Todo({text: taskItem});
+  var task = new Todo({text: taskItem, status: 'Open'});
 
 
 // push tasks to array openTasks
@@ -34,33 +34,30 @@ $('.input').on('submit', function (e) {
 
   $('.tasks').on('click', 'li', function (event) {
     event.preventDefault();
-    $(this).addClass('strike');
+    $(this).toggleClass('strike');
     var taskDone = $(this).text();
     var taskEdit = _.find (openTasks, {text: taskDone});
-    taskEdit.status = 'Closed';
-
+    if(taskEdit.status == 'Open')
+    // taskEdit.status = (this.status == 'Open') ? this.status : 'Closed';
+    console.log('hello');
   });
 
+// try to set status of 'completed' as variables that on click becomes a swappable function follow
+// the logic of this without the callback if possible?:
 
-  $('#also').on('click', 'li', function (event) {
-    event.preventDefault();
-    $(this).removeClass('strike');
-    var taskDone = $(this).text();
-    var taskEdit = _.find (openTasks, {text: taskDone});
-    taskEdit.status = 'Open';
+// getFilteredTodos: function () {
+//       if (this.filter === 'active') {
+//         return this.getActiveTodos();
+//       }
 
-  });
+//       if (this.filter === 'completed') {
+//         return this.getCompletedTodos();
+//       }
 
 
 });
 
-// $('#tasks').on('click', 'li', function() {
-//  event.preventDefault();
-//  $(this).toggleClass('complete');
-//  var tTask = $(this).text();
-//  var taskToEdit = _.find(storage, {task: tTask});
-//  taskToEdit.status = 'Complete';
-// });
+
 
     // $(this).remove(); will remove from list
 
