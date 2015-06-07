@@ -4,7 +4,7 @@ var taskDone, taskEdit;
 var Todo = function (options) {
   var args = options || {};
   this.text = args.text;
-  this.status = args.status;
+  this.status = 'Open';
 };
 
 var openTasks = [];
@@ -16,14 +16,14 @@ $('.input').on('submit', function (e) {
   e.preventDefault();
 
   var taskItem = $('.textDo').val();
-  var task = new Todo({text: taskItem, status: 'Open'});
+  var task = new Todo({text: taskItem});
 
 
 // push tasks to array openTasks
   openTasks.push(task);
 
 // appends HTML list item
-  $('ul').append('<li class="taskList">' + task.text + '</li>');
+  $('.open').append('<li class="taskList">' + task.text + '</li>');
 
 // resets input
   this.reset();
@@ -32,15 +32,15 @@ $('.input').on('submit', function (e) {
 
 // moves openTasks list item to closedTasks array when clicked
 
-  $('.tasks').on('click', 'li', function (event) {
+  $('.open').on('click', 'li', function (event) {
     event.preventDefault();
     $(this).addClass('strike');
     var taskDone = $(this).text();
-    var taskEdit = _.find (openTasks, {text: taskDone});
-    taskEdit.status = (this.status == 'Open') ? this.status : 'Closed';
-    $('.done').append('<li class="taskList">' + taskDone + '</li>');
+    var taskEdit = _.find(openTasks, {text: taskDone});
+    taskEdit.status = 'Closed';
     closedTasks.push(taskEdit);
     $(this).remove();
+
     console.log('hello');
   });
 
@@ -55,7 +55,9 @@ $('.input').on('submit', function (e) {
 //       if (this.filter === 'completed') {
 //         return this.getCompletedTodos();
 //       }
+//     $('.done').append('<li class="taskList">' + taskDone + '</li>');
 
+//     $('.done').append('<li class="taskList">' + taskDone + '</li>');
 
 });
 
