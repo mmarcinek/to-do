@@ -23,7 +23,7 @@ $('.input').on('submit', function (e) {
   taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li>' + task.text + '</li>');
+  $('.open').append('<li>' + task.text + '</li><a href="#"><i class="fa fa-trash-o"></i></a>');
 
 // resets input
   this.reset();

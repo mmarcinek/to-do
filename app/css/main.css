@@ -1,12 +1,12 @@
 body {
-  background-color: #FCF2E6;
+  background-image: url("https://c2.staticflickr.com/6/5102/5667714482_a5b8c9d311_b.jpg");
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 62.5%; }
 
 header {
   background-color: #D13B20;
   height: 20%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2); }
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
   header h1 {
     font-size: 3em;
     color: #3A3738;
@@ -19,7 +19,8 @@ input {
   font-size: 2em;
   height: 30px;
   width: 40%;
-  margin: 90px 0 40px 0; }
+  margin: 90px 0 40px 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
 
 .input {
   text-align: center;
@@ -30,12 +31,12 @@ input {
     font-size: 2em;
     width: 32px;
     color: #FCF2E6;
-    overflow: auto; }
+    overflow: auto;
+    margin-left: -2px; }
 
 .lists {
   width: 60%;
-  margin: 0 auto;
-  overflow: hidden; }
+  margin: 0 auto; }
   .lists ul {
     list-style-type: none;
     padding-left: 0;
@@ -48,7 +49,9 @@ input {
       background-color: #D13B20; }
     .lists ul li {
       font-size: 2.5em;
-      padding: 10px 0 10px 5%; }
+      padding: 0 0 0 5%; }
+    .lists ul li:hover {
+      cursor: pointer; }
 
 ul.open li {
   color: #3A3738; }
@@ -58,10 +61,11 @@ ul.closed li {
   text-decoration: line-through; }
 
 section {
-  overflow: hidden;
-  height: 38px;
+  overflow: scroll;
+  background-color: #FCF2E6;
+  height: 39px;
   transition: all 0.5s ease;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border-top: 0; }
 
 .home {

@@ -6,7 +6,8 @@ $bal: #7A8B79;
 
 
 body {
-  background-color: $back;
+  background-image: url('https://c2.staticflickr.com/6/5102/5667714482_a5b8c9d311_b.jpg');
+  // background-color: $back;
   font-family: 'Open Sans Condensed', sans-serif;
   font-size: 62.5%;
 }
@@ -14,7 +15,7 @@ body {
 header {
   background-color: $accentBd;
   height: 20%;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
  h1 {
   font-size: 3em;
@@ -22,7 +23,6 @@ header {
   margin-top: 0;
   text-align: center;
   padding-top: 20px;
-
  }
 }
 
@@ -32,11 +32,14 @@ input {
   height: 30px;
   width: 40%;
   margin: 90px 0 40px 0;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
 }
 
 .input {
   text-align: center;
   margin: 0 auto;
+
 
   .addDo {
     background-color: $accentBd;
@@ -45,13 +48,13 @@ input {
     width: 32px;
     color: $back;
     overflow: auto;
+    margin-left: -2px;
   }
 }
 
 .lists{
   width: 60%;
   margin: 0 auto;
-  overflow: hidden;
 
 
   ul {
@@ -60,9 +63,9 @@ input {
     margin-top: 0;
 
 
+
     h2 {
       font-size: 2.8em;
-      // padding: 3px 3px 5px 3px;
       color: $textDk;
       margin: 0;
       text-align: center;
@@ -72,7 +75,11 @@ input {
 
     li {
       font-size: 2.5em;
-      padding: 10px 0 10px 5%;
+      padding: 0 0 0 5%;
+    }
+
+    li:hover {
+      cursor: pointer;
     }
 
   }
@@ -93,10 +100,11 @@ ul.closed {
 }
 
 section {
-  overflow: hidden;
-  height: 38px;
+  overflow: scroll;
+  background-color: $back;
+  height: 39px;
   transition: all .5s ease;
-  border: 1px solid rgba(0,0,0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border-top: 0;
 }
 
