@@ -53,7 +53,11 @@ $('.input').on('submit', function (e) {
 // });
 
 
-
+// Accordion:
+$('section').on('click', function(){
+  $('section').removeClass('home');
+  $(this).addClass('home');
+});
 
 
 

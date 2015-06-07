@@ -1,5 +1,68 @@
-.input {
-  padding: 75px; }
+body {
+  background-color: #FCF2E6;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 62.5%; }
 
-.strike {
+header {
+  background-color: #D13B20;
+  height: 20%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2); }
+  header h1 {
+    font-size: 3em;
+    color: #3A3738;
+    margin-top: 0;
+    text-align: center;
+    padding-top: 20px; }
+
+input {
+  border: 0;
+  font-size: 2em;
+  height: 30px;
+  width: 40%;
+  margin: 90px 0 40px 0; }
+
+.input {
+  text-align: center;
+  margin: 0 auto; }
+  .input .addDo {
+    background-color: #D13B20;
+    border: 0;
+    font-size: 2em;
+    width: 32px;
+    color: #FCF2E6;
+    overflow: auto; }
+
+.lists {
+  width: 60%;
+  margin: 0 auto;
+  overflow: hidden; }
+  .lists ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0; }
+    .lists ul h2 {
+      font-size: 2.8em;
+      color: #3A3738;
+      margin: 0;
+      text-align: center;
+      background-color: #D13B20; }
+    .lists ul li {
+      font-size: 2.5em;
+      padding: 10px 0 10px 5%; }
+
+ul.open li {
+  color: #3A3738; }
+
+ul.closed li {
+  color: #978E91;
   text-decoration: line-through; }
+
+section {
+  overflow: hidden;
+  height: 38px;
+  transition: all 0.5s ease;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 0; }
+
+.home {
+  height: 300px; }
