@@ -29,20 +29,21 @@ $('.input').on('submit', function (e) {
   this.reset();
 
   console.log(task);
+  });
 
 // moves openTasks list item to closedTasks array when clicked
 
-  $('.tasks').on('click', 'li', function (event) {
-//     event.preventDefault();
-    $(this).toggleClass('strike');
+  $('.tasks').on('click','li', function (event) {
+    event.preventDefault();
+//     $(this).toggleClass('strike');
     var taskDone = $(this).text();
     var taskEdit = _.find (openTasks, {text: taskDone});
     taskEdit.status = 'Closed';
-    console.log(task);
+    closedTasks.push(taskEdit);
   });
 
 
-});
+// });
 
 // $('#tasks').on('click', 'li', function() {
 //  event.preventDefault();
