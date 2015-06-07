@@ -34,11 +34,13 @@ $('.input').on('submit', function (e) {
 
   $('.tasks').on('click', 'li', function (event) {
     event.preventDefault();
-    $(this).toggleClass('strike');
+    $(this).addClass('strike');
     var taskDone = $(this).text();
     var taskEdit = _.find (openTasks, {text: taskDone});
-    if(taskEdit.status == 'Open')
-    // taskEdit.status = (this.status == 'Open') ? this.status : 'Closed';
+    taskEdit.status = (this.status == 'Open') ? this.status : 'Closed';
+    $('.done').append('<li class="taskList">' + taskDone + '</li>');
+    closedTasks.push(taskEdit);
+    $(this).remove();
     console.log('hello');
   });
 
