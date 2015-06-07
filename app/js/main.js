@@ -1,5 +1,5 @@
 // (function(){
-var taskDone, taskEdit;
+
 // create constructor function for Todo:
 var Todo = function (options) {
   var args = options || {};
@@ -7,8 +7,8 @@ var Todo = function (options) {
   this.status = 'Open';
 };
 
-var openTasks = [];
-var closedTasks = [];
+// create an array of tasks to-do
+var taskTodo = [];
 
 
 //Connect input field and button event to Todo:
@@ -20,49 +20,38 @@ $('.input').on('submit', function (e) {
 
 
 // push tasks to array openTasks
-  openTasks.push(task);
+  taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li class="taskList">' + task.text + '</li>');
+  $('.open').append('<li>' + task.text + '</li>');
 
 // resets input
   this.reset();
+  });
 
-  console.log(task);
-
-// moves openTasks list item to closedTasks array when clicked
+// Swaps status from Open to Closed and moves to completed list:
 
   $('.open').on('click', 'li', function (event) {
     event.preventDefault();
-    $(this).addClass('strike');
     var taskDone = $(this).text();
-    var taskEdit = _.find(openTasks, {text: taskDone});
+    var taskEdit = _.find(taskTodo, {text: taskDone});
     taskEdit.status = 'Closed';
-    closedTasks.push(taskEdit);
     $(this).remove();
-
-    console.log('hello');
+    $('.closed').append('<li>' + taskDone + '</li>');
   });
 
-// try to set status of 'completed' as variables that on click becomes a swappable function follow
-// the logic of this without the callback if possible?:
-
-// getFilteredTodos: function () {
-//       if (this.filter === 'active') {
-//         return this.getActiveTodos();
-//       }
-
-//       if (this.filter === 'completed') {
-//         return this.getCompletedTodos();
-//       }
-//     $('.done').append('<li class="taskList">' + taskDone + '</li>');
-
-//     $('.done').append('<li class="taskList">' + taskDone + '</li>');
-
-});
+// Swaps status back to Open and moves item to to-do list:
+  $('.closed').on('click', 'li', function (event) {
+    event.preventDefault();
+    var taskReDo = $(this).text();
+    var taskSwap = _.find(taskTodo, {text: taskReDo});
+    taskSwap.status = 'Open';
+    $(this).remove();
+    $('.open').append('<li>' + taskReDo + '</li>');
+  });
+// });
 
 
 
-    // $(this).remove(); will remove from list
 
 
