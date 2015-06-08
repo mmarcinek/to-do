@@ -1,6 +1,7 @@
 body {
   background-image: url("https://c2.staticflickr.com/6/5102/5667714482_a5b8c9d311_b.jpg");
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   font-size: 62.5%; }
 
 header {
@@ -20,7 +21,7 @@ input {
   height: 30px;
   width: 40%;
   margin: 90px 0 40px 0;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); }
 
 .input {
   text-align: center;
@@ -32,14 +33,15 @@ input {
     width: 32px;
     color: #FCF2E6;
     overflow: auto;
-    margin-left: -2px; }
+    margin-left: -2px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); }
 
 section {
   overflow: scroll;
   background-color: #FCF2E6;
-  height: 39px;
+  height: 38px;
   transition: all 0.5s ease;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   border-top: 0; }
 
 .home {

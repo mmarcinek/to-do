@@ -24,10 +24,17 @@ $('.input').on('submit', function (e) {
   taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li>' + task.text + '<a href="#"><img src="images/trash.png"></a></li>');
+  $('.open').append('<li class="task">' + task.text + '<img src="images/trash.png" class="delete"></li>');
 
 // resets input
   this.reset();
+  });
+
+// delete the item from the list
+  $('.open').on('click', 'img', function(event){
+   event.preventDefault();
+   console.log('hey');
+   $(this).remove();
   });
 
 // Swaps status from Open to Closed and moves to completed list:
@@ -37,7 +44,7 @@ $('.input').on('submit', function (e) {
     var taskDone = $(this).text();
     var taskEdit = _.find(taskTodo, {text: taskDone});
     taskEdit.status = 'Closed';
-    $('.closed').append('<li>' + taskDone + '<a href="#"><img src="images/trash.png"></a></li>');
+    $('.closed').append('<li class="task">' + taskDone + '<img src="images/trash.png"></li>');
     $(this).remove();
 
   });
@@ -49,9 +56,9 @@ $('.input').on('submit', function (e) {
     var taskSwap = _.find(taskTodo, {text: taskReDo});
     taskSwap.status = 'Open';
     $(this).remove();
-    $('.open').append('<li>' + taskReDo + '<a href="#"><img src="images/trash.png"></a></li>');
+    $('.open').append('<li class="task">' + taskReDo + '<img src="images/trash.png"></li>');
   });
-//
+
 // Accordion:
 $('section').on('click', function(){
   $('section').removeClass('home');
