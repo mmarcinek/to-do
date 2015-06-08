@@ -1,76 +1,70 @@
-(function(){
+// (function(){
 
-  "use strict";
-// create constructor function for Todo:
-var Todo = function (options) {
-  var args = options || {};
-  this.text = args.text;
-  this.status = 'Open';
-  this.id = _.random(200, 6000);
-  // '+ x.id +'
-};
+//   "use strict";
 
-// create an array of tasks to-do
-var taskTodo = [];
+// // create constructor function for Todo:
+// var Todo = function (options) {
+//   var args = options || {};
+//   this.text = args.text;
+//   this.status = 'Open';
+//   this.id = _.random(200, 6000);
+//   // '+ x.id +'
+// };
 
-
-//Connect input field and button event to Todo:
-$('.input').on('submit', function (e) {
-  e.preventDefault();
-
-  var taskItem = $('.textDo').val();
-  var task = new Todo({text: taskItem});
+// // create an array of tasks to-do
+// var taskTodo = [];
 
 
-// push tasks to array openTasks
-  taskTodo.push(task);
+// //Connect input field and button event to Todo:
+// $('.input').on('submit', function (e) {
+//   e.preventDefault();
 
-// appends HTML list item
-  $('.open').append('<li id="' + task.id + '">' + task.text + '<img src="images/trash.png" class="delete"></li>');
+//   var taskItem = $('.textDo').val();
+//   var task = new Todo({text: taskItem});
 
-// resets input
-  this.reset();
-  });
 
-// delete the item from the list
-  //
-  //  event.preventDefault();
-  //  console.log('hey');
-  //  $(this).attr.(Number('id'));
-  //  // convert string to number
-  //  $(this).remove();
-  // });
+// // push tasks to array openTasks
+//   taskTodo.push(task);
 
-$('.open').on('click', 'img', function(event){
-  console.log('Hello');
-  taskTodo.forEach( function (task){
-    if(task.status !== "Open");
-      taskTodo = _.without(taskTodo, task);
-    $('#' + task.id).remove();
-  });
-});
+// // appends HTML list item
+//   $('.open').append('<li id="' + task.id + '">' + task.text + '<img src="images/trash.png" class="delete"></li>');
 
-// Swaps status from Open to Closed and moves to completed list:
+// // resets input
+//   this.reset();
+//   });
 
-  $('.open').on('click', 'li', function (event) {
-    event.preventDefault();
-    var taskDone = $(this).text();
-    var taskEdit = _.find(taskTodo, {text: taskDone});
-    taskEdit.status = 'Closed';
-    $('.closed').append('<li class="task">' + taskDone + '<img src="images/trash.png"></li>');
-    $(this).remove();
+// // delete the item from the list
 
-  });
+//  $('.open').on('click', 'img', function(event){
+//   console.log('Hello');
+//   taskTodo.forEach( function (task){
+//     if(task.status !== "Open");
+//       taskTodo = _.without(taskTodo, task);
+//     $('#' + task.id).remove();
+//   });
+// });
 
-// Swaps status back to Open and moves item to to-do list:
-  $('.closed').on('click', 'li', function (event) {
-    event.preventDefault();
-    var taskReDo = $(this).text();
-    var taskSwap = _.find(taskTodo, {text: taskReDo});
-    taskSwap.status = 'Open';
-    $(this).remove();
-    $('.open').append('<li class="task">' + taskReDo + '<img src="images/trash.png"></li>');
-  });
+// // Swaps status from Open to Closed and moves to completed list:
+
+//   $('.open').on('click', 'li', function (event) {
+//     event.preventDefault();
+//     var taskDone = $(this).text();
+//     var taskEdit = _.find(taskTodo, {text: taskDone});
+//     taskEdit.status = 'Closed';
+//     $('.closed').append('<li id="' + task.id + '">' + taskDone + '<img src="images/trash.png"></li>');
+//     $(this).remove();
+
+//   });
+
+// // Swaps status back to Open and moves item to to-do list:
+//   $('.closed').on('click', 'li', function (event) {
+//     event.preventDefault();
+//     var taskReDo = $(this).text();
+//     var taskSwap = _.find(taskTodo, {text: taskReDo});
+//     taskSwap.status = 'Open';
+//     $(this).remove();
+//     $('.open').append('<li id="' + task.id + '">' + taskReDo + '<img src="images/trash.png"></li>');
+//   });
 
 // Accordion:
 $('section').on('click', function(){
@@ -78,6 +72,6 @@ $('section').on('click', function(){
   $(this).addClass('home');
 });
 
-})();
+// })();
 
 
