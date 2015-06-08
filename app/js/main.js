@@ -1,5 +1,6 @@
-// (function(){
+(function(){
 
+  "use strict";
 // create constructor function for Todo:
 var Todo = function (options) {
   var args = options || {};
@@ -23,7 +24,7 @@ $('.input').on('submit', function (e) {
   taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li>' + task.text + '</li><a href="#"><i class="fa fa-trash-o"></i></a>');
+  $('.open').append('<li>' + task.text + '</li>' + '<a href="#"><img src="images/trash.png"></a>');
 
 // resets input
   this.reset();
@@ -36,8 +37,8 @@ $('.input').on('submit', function (e) {
     var taskDone = $(this).text();
     var taskEdit = _.find(taskTodo, {text: taskDone});
     taskEdit.status = 'Closed';
+    $('.closed').append('<li>' + taskDone + '</li>' + '<a href="#"><img src="images/trash.png"></a>');
     $(this).remove();
-    $('.closed').append('<li>' + taskDone + '</li>');
 
   });
 
@@ -50,14 +51,13 @@ $('.input').on('submit', function (e) {
     $(this).remove();
     $('.open').append('<li>' + taskReDo + '</li>');
   });
-// });
-
-
+//
 // Accordion:
 $('section').on('click', function(){
   $('section').removeClass('home');
   $(this).addClass('home');
 });
 
+})();
 
 
