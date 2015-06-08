@@ -26,14 +26,14 @@ $('.input').on('submit', function (e) {
   taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li class="task">' + task.text + '<img src="images/trash.png" class="delete"></li>');
+  $('.open').append('<li id="' + task.id + '">' + task.text + '<img src="images/trash.png" class="delete"></li>');
 
 // resets input
   this.reset();
   });
 
 // delete the item from the list
-  // $('.open').on('click', 'img', function(event){
+  //
   //  event.preventDefault();
   //  console.log('hey');
   //  $(this).attr.(Number('id'));
@@ -41,11 +41,14 @@ $('.input').on('submit', function (e) {
   //  $(this).remove();
   // });
 
-  taskTodo.forEach( function (t){
-    if(t.status !== "Open"):
-      taskTodo = _.without(taskTodo, t);
-    $('#' + t.id).remove();
-  })
+$('.open').on('click', 'img', function(event){
+  console.log('Hello');
+  taskTodo.forEach( function (task){
+    if(task.status !== "Open");
+      taskTodo = _.without(taskTodo, task);
+    $('#' + task.id).remove();
+  });
+});
 
 // Swaps status from Open to Closed and moves to completed list:
 
