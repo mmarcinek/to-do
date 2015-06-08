@@ -6,6 +6,8 @@ var Todo = function (options) {
   var args = options || {};
   this.text = args.text;
   this.status = 'Open';
+  this.id = _.random(200, 6000);
+  // '+ x.id +'
 };
 
 // create an array of tasks to-do
@@ -34,6 +36,8 @@ $('.input').on('submit', function (e) {
   $('.open').on('click', 'img', function(event){
    event.preventDefault();
    console.log('hey');
+   $(this).attr.(Number('id'));
+   // convert string to number
    $(this).remove();
   });
 
