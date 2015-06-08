@@ -24,7 +24,7 @@ $('.input').on('submit', function (e) {
   taskTodo.push(task);
 
 // appends HTML list item
-  $('.open').append('<li>' + task.text + '</li>' + '<a href="#"><img src="images/trash.png"></a>');
+  $('.open').append('<li>' + task.text + '<a href="#"><img src="images/trash.png"></a></li>');
 
 // resets input
   this.reset();
@@ -37,7 +37,7 @@ $('.input').on('submit', function (e) {
     var taskDone = $(this).text();
     var taskEdit = _.find(taskTodo, {text: taskDone});
     taskEdit.status = 'Closed';
-    $('.closed').append('<li>' + taskDone + '</li>' + '<a href="#"><img src="images/trash.png"></a>');
+    $('.closed').append('<li>' + taskDone + '<a href="#"><img src="images/trash.png"></a></li>');
     $(this).remove();
 
   });
@@ -49,7 +49,7 @@ $('.input').on('submit', function (e) {
     var taskSwap = _.find(taskTodo, {text: taskReDo});
     taskSwap.status = 'Open';
     $(this).remove();
-    $('.open').append('<li>' + taskReDo + '</li>');
+    $('.open').append('<li>' + taskReDo + '<a href="#"><img src="images/trash.png"></a></li>');
   });
 //
 // Accordion:
