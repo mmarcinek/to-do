@@ -33,13 +33,19 @@ $('.input').on('submit', function (e) {
   });
 
 // delete the item from the list
-  $('.open').on('click', 'img', function(event){
-   event.preventDefault();
-   console.log('hey');
-   $(this).attr.(Number('id'));
-   // convert string to number
-   $(this).remove();
-  });
+  // $('.open').on('click', 'img', function(event){
+  //  event.preventDefault();
+  //  console.log('hey');
+  //  $(this).attr.(Number('id'));
+  //  // convert string to number
+  //  $(this).remove();
+  // });
+
+  taskTodo.forEach( function (t){
+    if(t.status !== "Open"):
+      taskTodo = _.without(taskTodo, t);
+    $('#' + t.id).remove();
+  })
 
 // Swaps status from Open to Closed and moves to completed list:
 
